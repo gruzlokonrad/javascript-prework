@@ -7,8 +7,14 @@
 </head>
 <body>
 	<div class="container">
-		<div id="buttons"></div>
-		<div id="messages"></div>
+    <section class="buttons">
+      <div id="rock" class="button" onclick="game(1)">Kamień</div>
+      <div id="paper" class="button" onclick="game(2)">Papier</div>
+      <div id="scissors" class="button" onclick="game(3)">Nożyce</div>
+    </section>
+    <section class="messages">
+      <div id="message">Wybierz i zagraj!</div>
+    </section>
 	</div>
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>

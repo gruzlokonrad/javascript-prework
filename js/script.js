@@ -1,64 +1,60 @@
-    const computerChoose = () => {
-      let randomNumber = Math.floor(Math.random() * 3 + 1);
-      let computerMove = 'nieznany ruch';
 
-      if (randomNumber == 1) {
-        computerMove = 'kamień';
-      }
-      if (randomNumber == 2) {
-        computerMove = 'papier';
-      }
-      if (randomNumber == 3) {
-        computerMove = 'nożyce';
-      }
-      console.log('Komputer: ' + computerMove);
-      return computerMove;
-    }
-
-    const playerChoose = async () => {
-      let playerInput = await prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-      let playerMove = 'nieznany ruch';
-
-      if (playerInput == '1') {
-        playerMove = 'kamień';
-      }
-      if (playerInput == '2') {
-        playerMove = 'papier';
-      }
-      if (playerInput == '3') {
-        playerMove = 'nożyce';
-      }
-      if (playerMove == 'nieznany ruch') {
-        alert('Proszę wybrać cyfrę: 1, 2 lub 3')
-        playerChoose();
-      }
-      console.log('Ty: ' + playerMove);
-      return (playerMove);
-    }
-
-
-    const game = async () => {
-      const computerMove = computerChoose();
-      const playerMove = await playerChoose();
-      let message = 'nieznany';
-
-      printMessage('Mój ruch to: ' + computerMove)
-      printMessage('Twój ruch to: ' + playerMove)
-
-      if (computerMove == 'kamień' && playerMove == 'papier' ||
-        computerMove == 'nożyce' && playerMove == 'kamień' ||
-        computerMove == 'papier' && playerMove == 'nożyce') {
-        message = 'Ty wygrywasz!';
-      }
-      if (computerMove == playerMove) {
-        message = 'Jest remis!';
-      }
-      if (playerMove == 'kamień' && computerMove == 'papier' ||
-        playerMove == 'nożyce' && computerMove == 'kamień' ||
-        playerMove == 'papier' && computerMove == 'nożyce') {
-        message = 'Niestety, przegrałeś.';
-      }
-      printMessage(message)
-    }
-
+let getMove = (number) => {
+  let selectedMove;
+  if (number == 1) {
+    selectedMove = 'kamień';
+  } else if (number == 2) {
+    selectedMove = 'papier';
+  } else if (number == 3) {
+    selectedMove = 'nożyce';
+  } else {
+    alert('Proszę wybrać cyfrę: 1, 2 lub 3.');
     game();
+  }
+  return selectedMove
+}
+
+
+let playerChoose = (select) => {
+  // let playerInput = await prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+  const move = getMove(select);
+  // console.log('Ty: ' + move);
+  return move;
+}
+
+let computerChoose = () => {
+  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  const move = getMove(randomNumber);
+  // console.log('Computer: ' + move);
+  return move;
+}
+
+let conditions = (computerMove, playerMove) => {
+  let message;
+
+  if (computerMove == 'kamień' && playerMove == 'papier' ||
+    computerMove == 'nożyce' && playerMove == 'kamień' ||
+    computerMove == 'papier' && playerMove == 'nożyce') {
+    message = 'Ty wygrywasz!';
+  } else if (computerMove == playerMove) {
+    message = 'Jest remis!';
+  } else if (playerMove == 'kamień' && computerMove == 'papier' ||
+    playerMove == 'nożyce' && computerMove == 'kamień' ||
+    playerMove == 'papier' && computerMove == 'nożyce') {
+    message = 'Niestety, przegrałeś.';
+  } else {
+    message = 'Coś poszło nie tak ..';
+  }
+  return message;
+}
+
+let game = async (select) => {
+  let computerMove = await computerChoose();
+  let playerMove = await playerChoose(select);
+
+  let result = conditions(computerMove, playerMove);
+
+  printMessage('Komputer: ' + computerMove);
+  printMessage('Twój wybór: ' + playerMove);
+  printMessage(result);
+}

@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    justify-content: center;
+    align-items: center;
+
+    .button {
+      border: 1px solid black;
+      padding: 5px 10px;
+      width: 100px;
+      text-align: center;
+      margin: 20px 0;
+      border-radius: 7px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: lightgrey;
+      }
+    }
+  }
+
+  .messages {
+    flex-basis: 70%;
+    border: 1px solid black;
+    border-radius: 7px;
+
+    #message {
+      padding: 20px;
+      margin: 20px;
+    }
+  }
+}

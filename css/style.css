@@ -1,3 +1,33 @@
+.container {
+  display: flex;
+}
+.container .buttons {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  justify-content: center;
+  align-items: center;
+}
+.container .buttons .button {
+  border: 1px solid black;
+  padding: 5px 10px;
+  width: 100px;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 7px;
+}
+.container .buttons .button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+.container .messages {
+  flex-basis: 70%;
+  border: 1px solid black;
+  border-radius: 7px;
+}
+.container .messages #message {
+  padding: 20px;
+  margin: 20px;
+}
 
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MifQ== */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Nhc3Mvc3R5bGUuc2NzcyIsInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7QUNDRjtBRENFO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsZUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7QUNDSjtBRENJO0VBQ0UsdUJBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGNBQUE7RUFDQSxrQkFBQTtBQ0NOO0FEQ007RUFDRSxlQUFBO0VBQ0EsMkJBQUE7QUNDUjtBRElFO0VBQ0UsZUFBQTtFQUNBLHVCQUFBO0VBQ0Esa0JBQUE7QUNGSjtBRElJO0VBQ0UsYUFBQTtFQUNBLFlBQUE7QUNGTiIsImZpbGUiOiJzdHlsZS5jc3MifQ== */
