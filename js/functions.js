@@ -1,7 +1,6 @@
 function printMessage(msg){
   if (document.getElementById("message").textContent == 'Wybierz i zagraj!') {
     clearMessages()
-    console.log('clear')
   }
 
 	let div = document.createElement('div');

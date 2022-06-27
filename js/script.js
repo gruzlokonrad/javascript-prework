@@ -16,16 +16,13 @@ let getMove = (number) => {
 
 
 let playerChoose = (select) => {
-  // let playerInput = await prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
   const move = getMove(select);
-  // console.log('Ty: ' + move);
   return move;
 }
 
 let computerChoose = () => {
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
   const move = getMove(randomNumber);
-  // console.log('Computer: ' + move);
   return move;
 }
 
@@ -49,10 +46,10 @@ let conditions = (computerMove, playerMove) => {
 }
 
 let game = async (select) => {
-  let computerMove = await computerChoose();
-  let playerMove = await playerChoose(select);
+  const computerMove = await computerChoose();
+  const playerMove = await playerChoose(select);
 
-  let result = conditions(computerMove, playerMove);
+  const result = conditions(computerMove, playerMove);
 
   printMessage('Komputer: ' + computerMove);
   printMessage('Twój wybór: ' + playerMove);
